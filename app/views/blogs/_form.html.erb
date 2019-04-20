@@ -1,31 +1,51 @@
-<%= form_for @blog do |f| %>
- 
-  <% if @blog.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@blog.errors.count, "error") %> prohibited
-        this blog from being saved:
-      </h2>
-      <ul>
-        <% @blog.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+<div class="container">
+  <div class="d-flex justify-content-center h-100">
+    <div class="card">
+      <div class="card-header">
+        <h3>blogs</h3>
+        <div class="d-flex justify-content-end social_icon">
+          <span><i class="fab fa-facebook-square"></i></span>
+          <span><i class="fab fa-google-plus-square"></i></span>
+          <span><i class="fab fa-twitter-square"></i></span>
+        </div>
+      </div>
+      <div class="card-body">
+        <%= form_for @blog do |f| %>
+          <% if @blog.errors.any? %>
+            <div id="error_explanation">
+              <h2>
+                <%= pluralize(@blog.errors.count, "error") %> prohibited
+                this blog from being saved:
+              </h2>
+              <ul>
+                <% @blog.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+            
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
+            </div>
+            <%= f.text_field :title, autofocus: true, autocomplete: "title", :class => "form-control", placeholder: "title" %>
+            
+          </div>
+          <div class="input-group form-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-envelope-open-text"></i></span>
+            </div>
+            <%= f.text_area :text, autofocus: true, autocomplete: "text", :class => "form-control", placeholder: "text" %>
+          </div>
+          <div class="form-group">
+            
+            <input type="submit" value="Create" class="btn float-right login_btn">
+          </div>
         <% end %>
-      </ul>
+      </div>
+      <div class="card-footer">
+      </div>
     </div>
-  <% end %>
- 
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
- 
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
- 
-<% end %>
+  </div>
+</div>
