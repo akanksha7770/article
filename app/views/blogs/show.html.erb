@@ -1,11 +1,22 @@
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @blog.text %>
-</p>
-<%= link_to 'Back', blogs_path %>
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path, :class => "btn btn-primary" %>
+<%= link_to 'Edit', edit_blog_path, :class =>"btn btn-success" %> 
+<div class="container">
+           
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Text</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @blog.title %></td>
+        <td><%= @blog.text %></td>
+        
+        <td><%= current_user.email %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
